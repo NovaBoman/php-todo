@@ -5,18 +5,20 @@ require 'connect.php';
 
 // Create tasks
 
-$createsql = "INSERT INTO tasks (title, completed) VALUES (:title, 0)";
-$createstmt = $db->prepare($createsql);
+
 
 
 function createTask($title)
 {
-    global $createstmt;
+    global $db;
+
     if ($title == '') {
         return;
     } else {
+
+        $createsql = "INSERT INTO tasks (title, completed) VALUES (:title, 0)";
+        $createstmt = $db->prepare($createsql);
         $titleSanitized = htmlspecialchars($title);
-        $createstmt->bindParam(':title', $titleSanitized);
-        $createstmt->execute();
+        $createstmt->execute([':title' => $titleSanitized]);
     }
 }
