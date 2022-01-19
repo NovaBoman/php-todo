@@ -22,7 +22,7 @@ require 'functions/functions.php';
 
     <h1>Hello</h1>
 
-    <?php getTasks() ?>
+    <?php showTasks() ?>
 
 </body>
 

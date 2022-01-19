@@ -23,7 +23,7 @@ function createTask($title)
 // Get all tasks
 
 
-function getTasks()
+function showTasks()
 {
     global $db;
 
