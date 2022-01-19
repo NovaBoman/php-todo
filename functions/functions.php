@@ -22,7 +22,6 @@ function createTask($title)
 
 // Get all tasks
 
-
 function showTasks()
 {
     global $db;
@@ -35,4 +34,28 @@ function showTasks()
         <a href="/edit.php?id=' . $task->id . '">Edit</a>
         <a href="/completed.php?id=' . $task->id . '&completed=' . $task->completed . '">Done</a></div>';
     }
+}
+
+// Get single task by ID
+
+function getTaskById($id)
+{
+    global $db;
+    $sql = "SELECT * FROM tasks WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$id]);
+    $task = $stmt->fetch();
+    return $task;
+}
+
+
+// Edit task
+
+function editTask($id, $title)
+{
+    global $db;
+    $editsql = "UPDATE tasks SET title = :title WHERE id = :id";
+    $editstmt = $db->prepare($editsql);
+    $titleSanitized = htmlspecialchars($title);
+    $editstmt->execute([':id' => $id, ':title' => $titleSanitized]);
 }
