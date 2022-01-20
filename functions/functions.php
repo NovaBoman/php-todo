@@ -33,7 +33,7 @@ function showTasks()
         $taskClass = $task->completed == 1 ? "task completed" : "task incomplete";
         echo '<div class="' . $taskClass . '">' . $task->title . '<a href="/delete.php?id=' . $task->id . '">Delete</a>
         <a href="/edit.php?id=' . $task->id . '">Edit</a>
-        <a href="/completed.php?id=' . $task->id . '&completed=' . $task->completed . '">Done</a></div>';
+        <a href="/completed.php?id=' . $task->id . '">Done</a></div>';
     }
 }
 
@@ -79,4 +79,18 @@ function deleteTask($id)
     $sql = "DELETE FROM tasks WHERE id = ?";
     $stmt = $db->prepare($sql);
     $stmt->execute([$id]);
+}
+
+// Mark as completed
+
+function toggleCompleted($id)
+{
+    global $db;
+    $completed = getTaskById($id)->completed == 0 ? 1 : 0;
+
+    // Updates status 
+    $sql = "UPDATE tasks SET completed = ? WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$completed, $id]);
+    return $completed;
 }
