@@ -48,6 +48,12 @@ function getTaskById($id)
     return $task;
 }
 
+// Get task title
+
+function getTitle($id)
+{
+    return getTaskById($id)->title;
+}
 
 // Edit task
 
