@@ -13,7 +13,7 @@ function createTask($title)
         return;
     } else {
 
-        $sql = "INSERT INTO tasks (title, completed) VALUES (?, 0)";
+        $sql = "INSERT INTO tasks (title, created, completed) VALUES (?, curdate(), 0)";
         $stmt = $db->prepare($sql);
         $titleSanitized = htmlspecialchars($title);
         $stmt->execute([$titleSanitized]);
@@ -31,9 +31,10 @@ function showTasks()
     $tasks = $stmt->fetchAll();
     foreach ($tasks as $task) {
         $taskClass = $task->completed == 1 ? "task completed" : "task incomplete";
-        echo '<div class="' . $taskClass . '">' . $task->title . '<a href="/delete.php?id=' . $task->id . '">Delete</a>
-        <a href="/edit.php?id=' . $task->id . '">Edit</a>
-        <a href="/completed.php?id=' . $task->id . '">Done</a></div>';
+        echo '<div class="' . $taskClass . '">' . $task->title . ' ' . $task->created .
+            '<a href="/delete.php?id=' . $task->id . '">Delete</a>
+            <a href="/edit.php?id=' . $task->id . '">Edit</a>
+            <a href="/completed.php?id=' . $task->id . '">Done</a></div>';
     }
 }
 
