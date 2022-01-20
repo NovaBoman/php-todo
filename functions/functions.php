@@ -13,10 +13,10 @@ function createTask($title)
         return;
     } else {
 
-        $createsql = "INSERT INTO tasks (title, completed) VALUES (:title, 0)";
-        $createstmt = $db->prepare($createsql);
+        $sql = "INSERT INTO tasks (title, completed) VALUES (?, 0)";
+        $stmt = $db->prepare($sql);
         $titleSanitized = htmlspecialchars($title);
-        $createstmt->execute([':title' => $titleSanitized]);
+        $stmt->execute([$titleSanitized]);
     }
 }
 
@@ -60,8 +60,8 @@ function getTitle($id)
 function editTask($id, $title)
 {
     global $db;
-    $editsql = "UPDATE tasks SET title = :title WHERE id = :id";
-    $editstmt = $db->prepare($editsql);
+    $sql = "UPDATE tasks SET title = ? WHERE id = ?";
+    $stmt = $db->prepare($sql);
     $titleSanitized = htmlspecialchars($title);
-    $editstmt->execute([':id' => $id, ':title' => $titleSanitized]);
+    $stmt->execute([$titleSanitized, $id]);
 }
