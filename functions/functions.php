@@ -20,6 +20,7 @@ function createTask($title)
     }
 }
 
+
 // Get all tasks
 
 function showTasks()
@@ -49,12 +50,14 @@ function getTaskById($id)
     return $task;
 }
 
+
 // Get task title
 
 function getTitle($id)
 {
     return getTaskById($id)->title;
 }
+
 
 // Edit task
 
@@ -65,4 +68,15 @@ function editTask($id, $title)
     $stmt = $db->prepare($sql);
     $titleSanitized = htmlspecialchars($title);
     $stmt->execute([$titleSanitized, $id]);
+}
+
+
+// Delete task
+
+function deleteTask($id)
+{
+    global $db;
+    $sql = "DELETE FROM tasks WHERE id = ?";
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$id]);
 }
