@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
 <body>
     <form action="/edit.php" method="POST">
         <input type="hidden" value="<?= $_GET['id'] ?>" name="id">
-        <input type="text" value="<?= getTitle($_GET['id']); ?>" name="title"> //
+        <input type="text" value="<?= getTitle($_GET['id']); ?>" name="title">
         <button type="submit" name="submit">Update</button>
     </form>
 </body>
