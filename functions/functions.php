@@ -72,7 +72,7 @@ function editTask($id, $title)
 }
 
 
-// Delete task
+// Delete single task
 
 function deleteTask($id)
 {
@@ -82,16 +82,33 @@ function deleteTask($id)
     $stmt->execute([$id]);
 }
 
-// Mark as completed
+// Delete all marked as completed
+
+function deleteMarked()
+{
+    global $db;
+    $db->query("DELETE FROM tasks WHERE completed = 1");
+}
+
+
+// Mark single task as completed
 
 function toggleCompleted($id)
 {
     global $db;
-    $completed = getTaskById($id)->completed == 0 ? 1 : 0;
+    $completed = getTaskById($id)->completed == 0 ? 1 : 0; // Checks status
 
-    // Updates status 
     $sql = "UPDATE tasks SET completed = ? WHERE id = ?";
     $stmt = $db->prepare($sql);
     $stmt->execute([$completed, $id]);
     return $completed;
+}
+
+
+// Mark all completed
+
+function markAll()
+{
+    global $db;
+    $db->query("UPDATE tasks SET completed = 1");
 }
