@@ -31,10 +31,14 @@ function showTasks()
     $tasks = $stmt->fetchAll();
     foreach ($tasks as $task) {
         $taskClass = $task->completed == 1 ? "task completed" : "task incomplete";
-        echo '<div class="' . $taskClass . '">' . $task->title . ' ' . $task->created .
-            '<a href="/delete.php?id=' . $task->id . '">Delete</a>
+        echo '<div class="' . $taskClass . '">
+            <a class="done" href="/completed.php?id=' . $task->id . '">Done</a>
+            <p>' . $task->title . '</p>
+            <p>' . $task->created . '</p>
+            <p>' . $task->completed . '</p>
+            <a href="/delete.php?id=' . $task->id . '">Delete</a>
             <a href="/edit.php?id=' . $task->id . '">Edit</a>
-            <a href="/completed.php?id=' . $task->id . '">Done</a></div>';
+            </div>';
     }
 }
 

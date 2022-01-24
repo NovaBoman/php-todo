@@ -1,6 +1,12 @@
 <?php
 
 require 'functions/functions.php';
-deleteTask($_GET['id']);
+
+if (isset($_GET['id'])) {
+    deleteTask($_GET['id']);
+} elseif ($_GET['clearmarked'] == "true") {
+    deleteMarked();
+}
+
 header("Location: /index.php");
 die();
