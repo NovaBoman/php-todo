@@ -27,8 +27,8 @@ require 'functions/functions.php';
         <?php showTasks(); ?>
 
         <footer>
-            <a class="footer-links" href="/completed.php?completed=all">Mark all</a>
-            <a class="footer-links" href="/delete.php?clearmarked=true">Clear marked</a>
+            <a href="/completed.php?completed=all">Mark all</a>
+            <a href="/delete.php?clearmarked=true">Clear marked</a>
         </footer>
     </div>
 </body>
