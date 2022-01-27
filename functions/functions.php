@@ -25,6 +25,8 @@ function showTasks()
 
     $stmt = $db->query("SELECT * FROM tasks");
     $tasks = $stmt->fetchAll();
+
+    // Renders tasks
     foreach ($tasks as $task) {
         $taskClass = $task->completed == 1 ? "task completed" : "task incomplete";
         echo '<div class="' . $taskClass . '">
