@@ -63,7 +63,7 @@ function getTitle($id)
 function editTask($id, $title)
 {
     global $db;
-    $sql = "UPDATE tasks SET title = ?, edited = curdate() WHERE id = ?";
+    $sql = "UPDATE tasks SET title = ? WHERE id = ?";
     $stmt = $db->prepare($sql);
     $titleSanitized = htmlspecialchars($title);
     $stmt->execute([$titleSanitized, $id]);
