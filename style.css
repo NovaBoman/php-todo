@@ -1,6 +1,6 @@
 /* IMPORTS */
 
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Staatliches&display=swap");
 
 /* RESETS */
 
@@ -13,7 +13,7 @@ body,
 p {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 html {
   height: 100vh;
@@ -98,6 +98,8 @@ header {
 }
 
 h1 {
+  font-size: 2rem;
+  font-family: "Staatliches", cursive;
   color: #91684d;
 }
 input,
@@ -164,10 +166,4 @@ footer {
     rgba(255, 255, 255, 1) 48%,
     rgba(255, 255, 255, 1) 54%
   );
-}
-
-/* HIDE DELETE */
-
-.delete {
-  display: none;
 }
