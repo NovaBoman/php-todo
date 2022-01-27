@@ -32,12 +32,11 @@ function showTasks()
     foreach ($tasks as $task) {
         $taskClass = $task->completed == 1 ? "task completed" : "task incomplete";
         echo '<div class="' . $taskClass . '">
-            <a class="done" href="/completed.php?id=' . $task->id . '">Done</a>
-            <p>' . $task->title . '</p>
-            <p>' . $task->created . '</p>
-            <p>' . $task->completed . '</p>
-            <a href="/delete.php?id=' . $task->id . '">Delete</a>
-            <a href="/edit.php?id=' . $task->id . '">Edit</a>
+            <a class="checkbox" href="/completed.php?id=' . $task->id . '"></a>
+            <p class="title">' . $task->title . '</p>
+            <a class="delete" href="/delete.php?id=' . $task->id . '">Delete</a>
+            <a class ="edit" href="/edit.php?id=' . $task->id . '">edit</a>
+            <p class="date">' . $task->created . '</p>
             </div>';
     }
 }
@@ -107,7 +106,6 @@ function toggleCompleted($id)
     $stmt->execute([$completed, $id]);
     return $completed;
 }
-
 
 // Mark all completed
 
