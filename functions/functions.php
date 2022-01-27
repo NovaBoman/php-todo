@@ -31,17 +31,9 @@ function showTasks()
             <a class="checkbox" href="/completed.php?id=' . $task->id . '"></a>
             <p class="title">' . $task->title . '</p>
             <a class ="edit" href="/edit.php?id=' . $task->id . '">edit</a>
+            <a class="delete" href="/delete.php?id=' . $task->id . '"><img class="delete-icon" src="/assets/delete-icon.svg"></a>
             <p class="date">' . $task->created . '</p>
             </div>';
-
-        /* 
-            This line has been removed from the code above: 
-            <a class="delete" href="/delete.php?id=' . $task->id . '">Delete</a> .
-
-            A delete function was originally added as an option on each task together with "edit".
-            Later I decided to delete tasks by marking them and adding a function for deleting marked tasks.
-            I decided not to remove the function and html to note the process and so it could easily be added back as a feature.
-        */
     }
 }
 
@@ -76,7 +68,7 @@ function editTask($id, $title)
 }
 
 
-// Delete single task (Currently unused)
+// Delete single task
 function deleteTask($id)
 {
     global $db;

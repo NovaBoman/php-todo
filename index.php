@@ -15,6 +15,7 @@ require 'functions/functions.php';
 
 <body>
     <div class="container">
+
         <header>
             <h1>Simply do it</h1>
         </header>
