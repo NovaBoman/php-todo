@@ -1,3 +1,14 @@
+/* ------------------------------------------------
+
+CSS is devided into following categories:
+
+* IMPORTS 
+* RESETS
+* LAYOUT AND POSITIONING
+* STYLING - FONT STYLES, COLORS, BORDERS ETC.
+
+---------------------------------------------------*/
+
 /* IMPORTS */
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Staatliches&display=swap");
@@ -13,25 +24,50 @@ body,
 p {
   margin: 0;
   padding: 0;
-  font-family: "Noto Sans", sans-serif;
 }
+
+/*----------------------------------------------------------------------------------------------------------------*/
+
+/* LAYOUT AND POSITIONING */
+
 html {
   height: 100vh;
 }
 
 body {
   height: 100%;
-}
-
-/* --------------------------- */
-
-/* LAYOUT */
-
-.container {
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+header {
+  padding-top: 3vh;
+}
+.container {
+  padding: 2vw 0 20vh;
   width: 100%;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 4vh;
+  width: 95%;
+  max-width: 600px;
+}
+
+input {
+  flex-grow: 1;
+}
+
+input,
+button {
+  margin: 1.5vh;
+  padding: 2vh;
+  height: 6vh;
 }
 
 .task {
@@ -39,75 +75,53 @@ body {
   grid-template-columns: 1fr 6fr 1fr;
   row-gap: 0.5rem;
   align-items: center;
-  padding: 2vh 0;
+  width: 95%;
+  max-width: 600px;
+  margin: 0 auto 3vh;
+  padding: 2vh 3vh 1vh;
+}
+
+.title,
+.date {
+  text-align: left;
 }
 
 .date {
   grid-column: 2 / -1;
 }
-/* -----------------------------------------*/
-
-/* POSITIONING ELEMENTS */
-
-header,
-form,
-footer {
-  text-align: center;
-}
-
-form {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 500px;
-}
-.task-wrapper {
-  margin: 0 auto;
-  width: 100%;
-  min-height: 80vh;
-  max-width: 500px;
-  padding: 4vw 0 20vh;
-}
-
-.task {
-  margin-bottom: 3vh;
-}
-.edit {
-  text-align: center;
-}
 
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  width: 100%;
   bottom: 0px;
-  padding: 3rem;
+  width: 100%;
+  height: 20vh;
 }
+
 footer a {
-  display: inline-block;
-  margin: 2rem;
+  padding-top: 3vh;
+  margin: 0 3vw;
 }
 
-/* --------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
 
-/* STYLING ELEMENTS */
+/* STYLING */
 
 body {
   background-color: rgb(243, 227, 198);
 }
-header {
-  padding: 3vh;
-}
 
 h1 {
-  font-size: 2rem;
+  font-size: 4rem;
   font-family: "Staatliches", cursive;
   color: #91684d;
 }
+
 input,
 button {
-  margin: 1.5vh;
-  padding: 2vh;
   border: none;
-  height: 6vh;
   border-radius: 5px;
   font-size: 1rem;
   font-weight: bolder;
@@ -120,34 +134,40 @@ button {
 }
 
 .task {
-  padding: 2vh 3vh 1vh;
   background-color: #fff;
   border-radius: 10px;
+}
+
+.completed {
+  opacity: 0.5;
 }
 .date {
   font-size: 0.8rem;
   color: burlywood;
 }
+
 a {
   font-weight: bold;
   text-decoration: none;
   color: #91684d;
 }
+
 .checkbox {
   width: 25px;
   height: 25px;
   border-radius: 50%;
 }
+
 .incomplete .checkbox {
   border: 3px solid rgb(172, 172, 172);
 }
+
 .completed .checkbox {
   background-color: #91684d;
   border: 2px solid #91684d;
 }
 
 footer {
-  height: 20vh;
   background: -moz-linear-gradient(
     top,
     rgba(255, 255, 255, 0) 0%,

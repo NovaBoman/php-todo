@@ -24,9 +24,8 @@ require 'functions/functions.php';
             <button type="submit" name="submit">Add</button>
         </form>
 
-        <div class="task-wrapper">
-            <?php showTasks(); ?>
-        </div>
+        <?php showTasks(); ?>
+
         <footer>
             <a class="footer-links" href="/completed.php?completed=all">Mark all</a>
             <a class="footer-links" href="/delete.php?clearmarked=true">Clear marked</a>
