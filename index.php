@@ -32,8 +32,6 @@ require 'functions/functions.php';
             <a class="footer-links" href="/delete.php?clearmarked=true">Clear marked</a>
         </footer>
     </div>
-
-
 </body>
 
 </html>
