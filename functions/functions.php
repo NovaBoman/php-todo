@@ -1,10 +1,7 @@
 <?php
-
 require 'connect.php';
 
-
 // Create tasks
-
 function createTask($title)
 {
     global $db;
@@ -22,7 +19,6 @@ function createTask($title)
 
 
 // Get all tasks
-
 function showTasks()
 {
     global $db;
@@ -43,7 +39,6 @@ function showTasks()
 
 
 // Get single task by ID
-
 function getTaskById($id)
 {
     global $db;
@@ -56,7 +51,6 @@ function getTaskById($id)
 
 
 // Get task title
-
 function getTitle($id)
 {
     return getTaskById($id)->title;
@@ -64,7 +58,6 @@ function getTitle($id)
 
 
 // Edit task
-
 function editTask($id, $title)
 {
     global $db;
@@ -76,7 +69,6 @@ function editTask($id, $title)
 
 
 // Delete single task
-
 function deleteTask($id)
 {
     global $db;
@@ -86,7 +78,6 @@ function deleteTask($id)
 }
 
 // Delete all marked as completed
-
 function deleteMarked()
 {
     global $db;
@@ -95,7 +86,6 @@ function deleteMarked()
 
 
 // Mark single task as completed
-
 function toggleCompleted($id)
 {
     global $db;
@@ -108,7 +98,6 @@ function toggleCompleted($id)
 }
 
 // Mark all completed
-
 function markAll()
 {
     global $db;
