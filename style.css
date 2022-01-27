@@ -4,7 +4,10 @@ CSS is devided into following categories:
 
 * IMPORTS 
 * RESETS
+* VARIABLES 
+
 * LAYOUT AND POSITIONING
+
 * STYLING - FONT STYLES, COLORS, BORDERS ETC.
 
 ---------------------------------------------------*/
@@ -24,6 +27,15 @@ body,
 p {
   margin: 0;
   padding: 0;
+}
+
+/* VARIABLES */
+
+:root {
+  --primary-background-color: #f3e3c6;
+  --secondary-background-color: #ffffff;
+  --primary-color: #91684d;
+  --secondary-color: #deb887;
 }
 
 /*----------------------------------------------------------------------------------------------------------------*/
@@ -95,6 +107,7 @@ button {
   justify-self: right;
   width: 15px;
 }
+
 .date {
   grid-column: 2 / -1;
 }
@@ -119,17 +132,18 @@ footer a {
 /* STYLING */
 
 body {
-  background-color: rgb(243, 227, 198);
+  background-color: var(--primary-background-color);
 }
 
 h1 {
   font-size: 4rem;
   font-family: "Staatliches", cursive;
-  color: #91684d;
+  color: var(--primary-color);
 }
 
 input,
 button {
+  color: var(--primary-color);
   border: none;
   border-radius: 5px;
   font-size: 1rem;
@@ -137,13 +151,17 @@ button {
 }
 
 button {
-  background-color: rgb(255, 255, 255);
-  outline: 2px solid white;
-  box-shadow: 2px 2px 2px grey, inset 2px 2px 2px white;
+  background-color: var(--secondary-color);
+  color: var(--secondary-background-color);
+  box-shadow: 2px 2px 2px rgb(54, 42, 26);
+}
+
+button:hover {
+  background-color: var(--primary-color);
 }
 
 .task {
-  background-color: #fff;
+  background-color: var(--secondary-background-color);
   border-radius: 10px;
 }
 
@@ -153,13 +171,13 @@ button {
 
 .date {
   font-size: 0.8rem;
-  color: burlywood;
+  color: var(--secondary-color);
 }
 
 a {
   font-weight: bold;
   text-decoration: none;
-  color: #91684d;
+  color: var(--primary-color);
 }
 
 .checkbox {
@@ -169,12 +187,12 @@ a {
 }
 
 .incomplete .checkbox {
-  border: 3px solid rgb(172, 172, 172);
+  border: 3px solid var(--secondary-color);
 }
 
 .completed .checkbox {
-  background-color: #91684d;
-  border: 2px solid #91684d;
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
 }
 
 footer {
