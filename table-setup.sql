@@ -13,7 +13,6 @@ CREATE TABLE `tasks` (
   `title` varchar(255) NOT NULL,
   `completed` tinyint unsigned NOT NULL,
   `created` date DEFAULT NULL,
-  `edited` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
