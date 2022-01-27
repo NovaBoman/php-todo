@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 
 <body>
     <header>
-        <h1>Simply do it</h1>
+        <h1>Simply do it.</h1>
     </header>
     <form class="edit-form" action="/edit.php" method="POST">
         <input type="hidden" value="<?= $_GET['id'] ?>" name="id">

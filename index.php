@@ -17,7 +17,7 @@ require 'functions/functions.php';
     <div class="container">
 
         <header>
-            <h1>Simply do it</h1>
+            <h1>Simply do it.</h1>
         </header>
 
         <form action="create.php" method="POST">
